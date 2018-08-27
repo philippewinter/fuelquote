@@ -1,0 +1,19 @@
+{
+  "name": "fuelquote",
+  "version": "1.0.0",
+  "description": "Fuel quote for aviation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ".git"
+  },
+  "author": "Philippe Winter & Flavio Mesquita",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
+  }
+}
