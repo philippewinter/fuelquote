@@ -35,3 +35,18 @@
 2018-08-27T12:23:10.280-0500 I COMMAND  [LogicalSessionCacheRefresh] command config.$cmd command: createIndexes { createIndexes: "system.sessions", indexes: [ { key: { lastUse: 1 }, name: "lsidTTLIndex", expireAfterSeconds: 1800 } ], $db: "config" } numYields:0 reslen:114 locks:{ Global: { acquireCount: { r: 1, w: 1 } }, Database: { acquireCount: { W: 1 } }, Collection: { acquireCount: { w: 1 } } } protocol:op_msg 134ms
 2018-08-27T12:31:22.278-0500 I NETWORK  [listener] connection accepted from 127.0.0.1:57923 #1 (1 connection now open)
 2018-08-27T12:31:22.280-0500 I NETWORK  [conn1] received client metadata from 127.0.0.1:57923 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.1" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "17.7.0" } }
+2018-08-27T20:40:55.290-0500 I NETWORK  [conn1] end connection 127.0.0.1:57923 (0 connections now open)
+2018-08-27T20:40:57.708-0500 I NETWORK  [listener] connection accepted from 127.0.0.1:61822 #2 (1 connection now open)
+2018-08-27T20:40:57.711-0500 I NETWORK  [conn2] received client metadata from 127.0.0.1:61822 conn2: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.1" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "17.7.0" } }
+2018-08-27T20:41:10.342-0500 I NETWORK  [conn2] end connection 127.0.0.1:61822 (0 connections now open)
+2018-08-27T20:41:15.031-0500 I NETWORK  [listener] connection accepted from 127.0.0.1:61826 #3 (1 connection now open)
+2018-08-27T20:41:15.031-0500 I NETWORK  [conn3] received client metadata from 127.0.0.1:61826 conn3: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.0.1" }, os: { type: "Darwin", name: "Mac OS X", architecture: "x86_64", version: "17.7.0" } }
+2018-08-27T20:41:18.725-0500 I CONTROL  [signalProcessingThread] got signal 2 (Interrupt: 2), will terminate after current cmd ends
+2018-08-27T20:41:18.727-0500 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2018-08-27T20:41:18.727-0500 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2018-08-27T20:41:18.733-0500 I CONTROL  [signalProcessingThread] Shutting down free monitoring
+2018-08-27T20:41:18.734-0500 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+2018-08-27T20:41:18.740-0500 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+2018-08-27T20:41:18.826-0500 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2018-08-27T20:41:18.828-0500 I CONTROL  [signalProcessingThread] now exiting
+2018-08-27T20:41:18.833-0500 I CONTROL  [signalProcessingThread] shutting down with code:0

@@ -1,0 +1,37 @@
+extends header
+
+block content
+    script.
+         $(document).ready(function() {
+            var max_fields      = 30; //maximum input boxes allowed
+            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+   
+            var x = 1; //initlal text box count
+                $(add_button).click(function(e){ //on add input button click
+                    e.preventDefault();
+                    if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="row"><input class="form-control" type="date" name="dt_flight[]" placeholder="Date"/><select class="form-control" name="acft[]"><option value="VQBFD">VQBFD</option><option value="VQBHA">VQBHA</option></select><input class="form-control" type="text" name="origin[]" placeholder="Origin"/><input class="form-control" type="text" name="destination[]" placeholder="Destination"/><input class="form-control" type="number" name="gal[]" placeholder="Galons"/><input class="form-control" type="text" name="fbo[]" placeholder="FBO"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+                }
+            });
+   
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parents('.row').remove(); x--;
+            })
+            });
+
+    form(method='POST')
+        #form-group
+            input.add_field_button(type='button', value='Add Flight')
+        #form-group
+            input.form-control(name='dt_flight[]', type='date')
+            select(name="acft[]")
+                option(value="VQBFD") VQBFD 
+                option(value="VQBHA") VQBHA 
+            input.form-control(name='origin[]', type='text,' placeholder='Origin')
+            input.form-control(name='destination[]', type='text,' placeholder='Destination')
+            input.form-control(name='gal', type='number,' placeholder='Galons')
+            input.form-control(name='fbo', type='text,' placeholder='FBO')
+        div(class="input_fields_wrap")
+        input.btn.btn-primary(type='submit', value='Send')

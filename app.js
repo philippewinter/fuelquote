@@ -8,8 +8,8 @@ app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'pug');
 
 //Home route
-app.get('/', function (req, res) {
-    res.render('index');
+app.get('/pages', function (req, res) {
+    res.render('new_flight');
   });
 
   //Start Server
