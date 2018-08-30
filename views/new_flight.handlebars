@@ -1,0 +1,39 @@
+
+    <script>
+         $(document).ready(function() {
+            var max_fields      = 30; //maximum input boxes allowed
+            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+   
+            var x = 1; //initlal text box count
+                $(add_button).click(function(e){ //on add input button click
+                    e.preventDefault();
+                    if(x < max_fields){ //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="row"><br><input class="form-control" type="date" name="dt_flight[]" placeholder="Date"/><select class="form-control" name="acft[]"><option value="VQBFD">VQBFD</option><option value="VQBHA">VQBHA</option></select><input class="form-control" type="text" name="origin[]" placeholder="Origin"/><input class="form-control" type="text" name="destination[]" placeholder="Destination"/><input class="form-control" type="number" name="gal[]" placeholder="Galons"/><input class="form-control" type="text" name="fbo[]" placeholder="FBO"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+                }
+            });
+   
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parents('.row').remove(); x--;
+            })
+            });
+        </script>            
+        
+        <br><button class="add_field_button btn btn-primary">Add Flight</button>
+
+        <form class="form-group" method="post"><div class="row">
+                <br><input class="form-control" type="date" name="dt_flight[]" placeholder="Date"/>
+                <select class="form-control" name="acft[]">
+                    <option value="VQBFD">VQBFD</option>
+                    <option value="VQBHA">VQBHA</option></select>
+                <input class="form-control" type="text" name="origin[]" placeholder="Origin"/>
+                <input class="form-control" type="text" name="destination[]" placeholder="Destination"/>
+                <input class="form-control" type="number" name="gal[]" placeholder="Galons"/>
+                <input class="form-control" type="text" name="fbo[]" placeholder="FBO"/><br></div>
+                <div class="input_fields_wrap container form-group"></div>
+    
+                <br><input type="submit" name="submit" class="btn btn-primary" value="Send">
+                </form></div></div>
+    
+     
