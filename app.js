@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+//Bower
 app.use(express.static(__dirname + '/public'));
 
 //Handlebar Middleware
