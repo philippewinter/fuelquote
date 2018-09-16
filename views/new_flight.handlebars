@@ -9,7 +9,7 @@
             e.preventDefault();
             if (x < max_fields) { //max input box allowed
                 x++; //text box increment
-                $(wrapper).append('<div class="row align-items-center form-group"><input class="form-control col-lg-2" type="date" name="dt_flight[]" placeholder="Date" /><select class="form-control col-lg-1" name="acft[]"><option value="VQBFD">VQBFD</option>< option value = "VQBHA" > VQBHA</option ></select ><input class="form-control col-lg-1" type="text" name="origin[]" placeholder="Origin" /><input class="form-control col-lg-1" type="text" name="destination[]" placeholder="Destination" /><input class="form-control col-lg-1" type="number" name="gal[]" placeholder="Galons" /><input class="form-control col-lg-5" type="text" name="fbo[]" placeholder="FBO" /> <br> <a href="#" class="remove_field text-danger">Remove</a></div>'); //add input box
+                $(wrapper).append('<div class="row align-items-center form-group"><input class="form-control col-lg-2" type="date" name="dt_flight" placeholder="Date" required/><select class="form-control col-lg-1" name="acft"><option value="VQBFD">VQBFD</option>< option value = "VQBHA" > VQBHA</option ></select ><input class="form-control col-lg-1" type="text" name="origin" placeholder="Origin" required/><input class="form-control col-lg-1" type="text" name="destination" placeholder="Destination" required/><input class="form-control col-lg-1" type="number" name="gal" placeholder="Galons" /><input class="form-control col-lg-5" type="text" name="fbo" placeholder="FBO" /> <br> <a href="#" class="remove_field text-danger">Remove</a></div>'); //add input box
             }
         });
 
@@ -24,15 +24,15 @@
 <form method="post">
 
     <div class="row form-group">
-        <input class="form-control col-lg-2" type="date" name="dt_flight[]" placeholder="Date" />
-        <select class="form-control col-lg-1" name="acft[]">
+        <input class="form-control col-lg-2" type="date" name="dt_flight" placeholder="Date" required />
+        <select class="form-control col-lg-1" name="acft">
             <option value="VQBFD">VQBFD</option>
             <option value="VQBHA">VQBHA</option>
         </select>
-        <input class="form-control col-lg-1" type="text" name="origin[]" placeholder="Origin" />
-        <input class="form-control col-lg-1" type="text" name="destination[]" placeholder="Destination" />
-        <input class="form-control col-lg-1" type="number" name="gal[]" placeholder="Galons" />
-        <input class="form-control col-lg-5" type="text" name="fbo[]" placeholder="FBO" /></div>
+        <input class="form-control col-lg-1" type="text" name="origin" placeholder="Origin" required />
+        <input class="form-control col-lg-1" type="text" name="destination" placeholder="Destination" required />
+        <input class="form-control col-lg-1" type="number" name="gal" placeholder="Galons" />
+        <input class="form-control col-lg-5" type="text" name="fbo" placeholder="FBO" /></div>
     <div class="input_fields_wrap"></div>
 
     <br><input type="submit" name="submit" class="btn btn-light" value="Send">
