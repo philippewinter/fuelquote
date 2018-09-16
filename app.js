@@ -1,9 +1,16 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
 
 //Init app
 const app = express();
 const port = 3000;
+
+//Connect to Mogoose
+mongoose
+  .connect('mongodb://localhost/aviation')
+  .then(() => console.log('MognoDB connected...'))
+  .catch(err => console.log(err));
 
 //Bower
 app.use(express.static(__dirname + '/public'));
