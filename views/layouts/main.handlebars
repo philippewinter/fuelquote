@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="components/jquery/dist/jquery.js"></script>
-    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="components/bootstrap/dist/css/style.css">
+    <script src="/components/jquery/dist/jquery.js"></script>
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
 
@@ -16,7 +16,10 @@
 
 <body>
     {{> _navbar}}
-    <div class="container">
+    <br>
+    <div class="container mt-2">
+        {{> _msg}}
+        {{> _errors}}
         {{{body}}}
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

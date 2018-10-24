@@ -1,11 +1,18 @@
 const express = require('express');
+const path = require('path');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 //Init app
 const app = express();
 const port = 3000;
+
+//Load routes
+const quotes = require('./routes/quotes');
+const users = require('./routes/users');
 
 //Connect to Mogoose
 mongoose
@@ -18,13 +25,6 @@ mongoose
   .then(() => console.log('MognoDB connected...'))
   .catch(err => console.log(err));
 
-//Load Quote Model
-require('./models/Quote');
-const Quote = mongoose.model('quote');
-
-//Bower
-app.use(express.static(__dirname + '/public'));
-
 //Handlebar Middleware
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
@@ -33,27 +33,31 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//Home route
-app.get('/', function(req, res) {
-  res.render('new_flight');
+//Static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+//Express Session Middleware
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+app.use(flash());
+
+//Global variables
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
 });
 
-//Process Form
-app.post('/', (req, res) => {
-  console.log(req.body);
-
-  const newUser = {
-    dt_flight: req.body.dt_flight,
-    acft: req.body.acft,
-    origin: req.body.origin,
-    destination: req.body.destination,
-    gal: req.body.gal,
-    fbo: req.body.fbo
-  };
-  new Quote(newUser).save().then(quote => {
-    res.redirect('/quotes');
-  });
-});
+//Use routes
+app.use('/quotes', quotes);
+app.use('/users', users);
 
 //Start Server
 app.listen(port, () => console.log(`Server started on port ${port}!`));
