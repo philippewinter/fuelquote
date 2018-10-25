@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const { ensureAuthenticated } = require('../helpers/auth');
 
 //Load Quote Model
 require('../models/Quote');
 const Quote = mongoose.model('quote');
 
 //New Flight route
-router.get('/', function(req, res) {
+router.get('/', ensureAuthenticated, (req, res) => {
   res.render('new_flight');
 });
 

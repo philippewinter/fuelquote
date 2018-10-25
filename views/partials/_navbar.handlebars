@@ -9,6 +9,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
+                {{#if user}}
                 <li class="nav-item">
                     <a href="/quotes/" class="nav-link"><i class="fas fa-plane"></i>New Flight</a>
                 </li>
@@ -25,9 +26,17 @@
                         <a class="dropdown-item" href="#view_acft"><i class="fas fa-pencil-alt"></i>Aircraft</a>
                         <a class="dropdown-item" href="#view_pev"><i class="fas fa-pencil-alt"></i>Pilot</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                        <a class="dropdown-item" href="/users/logout"><i class="fas fa-sign-out-alt"></i>Logout</a>
                     </div>
                 </li>
+                {{else}}
+                <li class="nav-item">
+                    <a href="/users/login" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/users/register" class="nav-link">Register</a>
+                </li>
+                {{/if}}
             </ul>
         </div>
     </div>
