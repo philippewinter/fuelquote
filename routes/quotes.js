@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
   console.log(req.body);
 
   const newFlight = {
-    user_id: 1,
+    user: req.user.id,
     dt_flight: req.body.dt_flight,
     acft: req.body.acft,
     origin: req.body.origin,

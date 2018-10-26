@@ -14,6 +14,7 @@ const port = 3000;
 //Load routes
 const quotes = require('./routes/quotes');
 const users = require('./routes/users');
+const settings = require('./routes/settings');
 
 //Passport config
 require('./config/passport')(passport);
@@ -67,6 +68,7 @@ app.use((req, res, next) => {
 //Use routes
 app.use('/quotes', quotes);
 app.use('/users', users);
+app.use('/settings', settings);
 
 //Start Server
 app.listen(port, () => console.log(`Server started on port ${port}!`));

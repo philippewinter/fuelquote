@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 //Create Schema
 const QuoteSchema = new Schema({
-  user_id: {
-    type: Number,
+  user: {
+    type: String,
     required: true
   },
   dt_quote: {
