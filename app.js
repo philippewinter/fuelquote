@@ -6,10 +6,12 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+const methodOverride = require('method-override');
 
 //Init app
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+const ip = process.env.IP;
 
 //Load routes
 const quotes = require('./routes/quotes');
@@ -22,7 +24,7 @@ require('./config/passport')(passport);
 //Connect to Mogoose
 mongoose
   .connect(
-    'mongodb://localhost/aviation',
+    'mongodb://' + ip + ':27017/aviation',
     {
       useNewUrlParser: true
     }
@@ -37,6 +39,9 @@ app.set('view engine', 'handlebars');
 //BodyParser Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//Method Override Middleware
+app.use(methodOverride('_method'));
 
 //Static folder
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,0 +1,32 @@
+<form action="/settings/providers/add">
+<input type="submit" class="btn btn-success mb-2" value="Add Provider">
+</form>
+<div class="row">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col-auto">Company</th>
+      <th scope="col-auto">Representative</th>
+      <th scope="col-auto">Email</th>
+      <th scope="col-auto">Email 2</th>
+      <th scope="col-2"></th>
+    </tr>
+ </thead>
+  <tbody>
+
+  {{#each provider}}
+    <tr>
+      <td class="col-auto">{{company}}</td>
+      <td class="col-auto">{{representative}}</td>
+      <td class="col-auto">{{email}}</td>
+      <td class="col-auto">{{email2}}</td>
+      <td class="col-2" align="center"><div class="form-inline"><a class ="btn btn-success mr-1" href="/settings/providers/edit/{{id}}"><i class="far fa-edit"></i></a> <form method="POST" action="/settings/providers/{{id}}?_method=DELETE">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+    </form></div></td>
+    </tr>
+  {{else}}
+  <p>No Providers</p>
+  {{/each}}
+  </table>
+</div>

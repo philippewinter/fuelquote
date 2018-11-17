@@ -1,0 +1,15 @@
+<div class="card card-body col-3 mx-auto">
+  <h4>Edit Pilot</h4>
+  <form method="POST" action="/settings/pilot/{{pilot.id}}?_method=PUT">
+      <input type="hidden" name="_method" value="PUT">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input type="text" name="name" class="form-control" value="{{pilot.name}}" required>
+    </div>
+        <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" value="{{pilot.email}}" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Save</button>
+  </form>
+</div>

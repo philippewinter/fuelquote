@@ -1,0 +1,23 @@
+<div class="card card-body col-3 mx-auto">
+  <h4>Edit Provider</h4>
+  <form method="POST" action="/settings/providers/{{provider.id}}?_method=PUT">
+      <input type="hidden" name="_method" value="PUT">
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input type="text" name="company" class="form-control" value="{{provider.company}}" required>
+    </div>
+    <div class="form-group">
+      <label for="representative">Representative</label>
+      <input type="text" name="representative" class="form-control" value="{{provider.representative}}" required>
+    </div>
+        <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" name="email" class="form-control" value="{{provider.email}}" required>
+    </div>
+        <div class="form-group">
+      <label for="email2">Email 2</label>
+      <input type="text" name="email2" class="form-control" value="{{provider.email2}}">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Save</button>
+  </form>
+</div>

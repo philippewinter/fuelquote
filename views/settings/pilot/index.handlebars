@@ -1,0 +1,28 @@
+<form action="/settings/pilot/add">
+<input type="submit" class="btn btn-success mb-2" value="Add Pilot">
+</form>
+<div class="row">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col-auto">Name</th>
+      <th scope="col-auto">Email</th>
+      <th scope="col-2"></th>
+    </tr>
+ </thead>
+  <tbody>
+
+  {{#each pilot}}
+    <tr>
+      <td class="col-auto">{{name}}</td>
+      <td class="col-auto">{{email}}</td>
+      <td class="col-2" align="center"><div class="form-inline"><a class ="btn btn-success mr-1" href="/settings/pilot/edit/{{id}}"><i class="far fa-edit"></i></a> <form method="POST" action="/settings/pilot/{{id}}?_method=DELETE">
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+    </form></div></td>
+    </tr>
+  {{else}}
+  <p>No Pilots</p>
+  {{/each}}
+  </table>
+</div>
